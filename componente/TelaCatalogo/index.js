@@ -9,7 +9,6 @@ import Cardvinho from './cardvinho';
 
 
 
-
 export default function TelaCatalogo(props) {
   const vinhos = [
     {

@@ -1,34 +1,45 @@
-import { ImageBackground, Text } from "react-native";
+import { Image, ImageBackground, Text } from "react-native";
 import { StyleSheet} from 'react-native';
+import { View } from "react-native-web";
 
 
 const Cardvinho = ({props, vinhos})=>{
     return(
-        <ImageBackground                                 
-            style={estilo.vinhos}
-            source={vinhos.imagem}
-            borderRadius={10}
-            resizeMode="cover"
-            onTouchEnd={() => {props.navigation.navigate('Detalhes',vinhos)}}  
+        <View
+            style={estilo.cardVinho}
+            onTouchEnd={() => {props.navigation.navigate('Detalhes',vinhos)}}
         >
+            <Image
+                style={estilo.vinhos}
+                source={vinhos.imagem}
+            /> 
             <Text style={estilo.titulo}>{vinhos.modelo}</Text>
-        </ImageBackground>
+        </View>
+
     );
 }
 
 
 const estilo = StyleSheet.create({
-    vinhos:{
-        width: 360,
-        height: 900,
-        backgroundColor: '#ddd',
+    cardVinho:{
+        width: 350,    
+        flexDirection: "row",
         borderRadius: 10,
-        justifyContent: "space-between",
-        marginVertical: 20               
+        marginBottom: 10,
+        
+    },
+    vinhos:{
+        width: 25,
+        height: 100,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        marginHorizontal: 10            
     },    
     titulo:{
+        width: '100%',
         padding:5,
-        backgroundColor: "rgba(255, 255, 255, 0.4)"
+        textAlign: "center" ,
+        marginTop: 30
     }
   });
   
